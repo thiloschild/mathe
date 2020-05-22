@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import xlrd
+import xlwings as xw
 
 csv = xlrd.open_workbook("exam.xlsx")
 table = csv.sheet_by_name("table")
@@ -15,9 +16,22 @@ for x in range(1, num_col):
 median = np.median(list1)
 mean = np.mean(list1)
 
-print (mean)
+print(mean)
 
 
 
 
 print(list1)
+
+#############################################
+#write to excel
+
+wb = xlwings.Book("exam.xlsx")
+result = wb.sheets[1]
+
+result.range(2,4).value = 4
+
+wb.save()
+wb.close()
+
+
