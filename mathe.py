@@ -9,7 +9,7 @@ list1 = []
 
 num_col = table.ncols
 
-for x in num_col:
+for x in range(1, num_col):
 	list1 = table.cell(1, x)
 
 
