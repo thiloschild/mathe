@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import xlrd
-import xlwings as xw
+import openpyxl
 
 csv = xlrd.open_workbook("exam.xlsx")
 table = csv.sheet_by_name("table")
@@ -26,12 +26,9 @@ print(list1)
 #############################################
 #write to excel
 
-wb = xlwings.Book("exam.xlsx")
-result = wb.sheets[1]
+wb = openpyx.load_workbook("exam.xlsx")
+sh = wb.get_sheet_by_name("sol")
 
-result.range(2,4).value = 4
+sh['B1'] = 6
 
 wb.save()
-wb.close()
-
-
