@@ -1,4 +1,4 @@
-import pandas as pd
+
 import numpy as np
 import xlrd
 import openpyxl
@@ -26,13 +26,6 @@ print(std)
 print(corrcoef)
 
 
-
-
-
-
-
-print(list1)
-
 #############################################
 #write to excel
 
@@ -42,6 +35,15 @@ dest_filename = "exam.xlsx"
 
 cell = sh.cell(2,2)
 cell.value = median
+cell = sh.cell(3,2)
+cell.value = mean
+cell = sh.cell(4,2)
+cell.value = variance
+cell = sh.cell(5,2)
+cell.value = std
+cell = sh.cell(9,2)
+cell.value = corrcoef
+
 
 wb.save(filename=dest_filename)
 
