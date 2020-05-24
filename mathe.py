@@ -26,7 +26,7 @@ print(list1)
 #############################################
 #write to excel
 
-wb = openpyx.load_workbook("exam.xlsx")
+wb = openpyxl.load_workbook("exam.xlsx")
 sh = wb.get_sheet_by_name("sol")
 
 sh['B1'] = 6
