@@ -54,6 +54,9 @@ varcoefx = stdax/np.abs(meanx)
 varcoefy = stday/np.abs(meany)
 cov = cova(x,y)
 corrcoef = corrcoef(x,y)
+rquad = corrcoef**2
+b = cov / variancex
+a = meany - round(b,4) * meanx
 
 xw.Range("B6").value = medianx
 xw.Range("C6").value = mediany
@@ -67,3 +70,7 @@ xw.Range("B10").value = varcoefx
 xw.Range("C10").value = varcoefy
 xw.Range("B11").value = cov
 xw.Range("B12").value = corrcoef
+xw.Range("B15").value = rquad
+xw.Range("B16").value = b
+xw.Range("B17").value = a
+
