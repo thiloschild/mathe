@@ -1,34 +1,52 @@
-import pandas as pd
 import numpy as np
-import xlrd
-import openpyxl
+import xlwings as xw
+import pandas as pd
 
-csv = xlrd.open_workbook("exam.xlsx")
-table = csv.sheet_by_name("table")
 
-list1 = []
 
-num_col = table.ncols
+#import from the excel file
+def get_data(file):
 
-for x in range(1, num_col):
-	list1.append(table.cell(1, x).value)
-
-median = np.median(list1)
-mean = np.mean(list1)
-
-print(mean)
+	wb.xw.Book(file)
+	lastcol = countcol(2)
+	lastrow = countrow(2)
 
 
 
 
-print(list1)
 
-#############################################
-#write to excel
 
-wb = openpyxl.load_workbook("exam.xlsx")
-sh = wb.get_sheet_by_name("sol")
 
-sh['B1'] = 6
+#count the horizontal columns in the excel sheet
+def countcol(row_num):
+    lastcol = 0
+    while True:
+        cell_value = xw.Range((row_num,lastcol+1)).value
+        if cell_value is not None:
 
-wb.save()
+            lastcol = lastcol + 1
+        else:
+            break
+    return lastcol +1
+
+#count the vertical columns in the excel sheet
+def countrow(col_num):
+    lastrow = 0
+    while True:
+        cell_value = xw.Range((lastrow+1,col_num)).value
+        if cell_value is not None:
+
+            lastrow = lastrow + 1
+        else:
+            break
+    return lastrow +1
+
+
+##################################################################################
+
+
+
+
+
+
+#xw.Range("B17").value = a
