@@ -4,19 +4,6 @@ import pandas as pd
 
 
 
-#import from the excel file
-def get_data(file):
-
-	xw.Book(file)
-	lastcol = countcol(1)
-	lastrow = countrow(1)
-	print(lastcol)
-	print(lastrow)
-
-
-
-
-
 
 
 
@@ -44,13 +31,24 @@ def countrow(col_num):
             break
     return lastrow +1
 
-get_data("4felder.xlsm")
-
-
-
 
 ##################################################################################
+#import from the excel file
 
+xw.Book('4felder.xlsm')
+lastcol = countcol(1)
+lastrow = countrow(1)
+PvonA = xw.Range((lastrow,2)).value
+PvonB = xw.Range((lastrow,3)).value
+if(lastcol > 3):
+    PvonC = xw.Range((lastrow,4)).value
+PvonX = xw.Range((2,lastcol)).value
+PvonY = xw.Range((3,lastcol)).value
+if(lastrow > 3):
+    PvonZ = xw.Range((4,lastcol)).value
+
+
+print()
 
 
 
