@@ -7,9 +7,12 @@ import pandas as pd
 #import from the excel file
 def get_data(file):
 
-	wb.xw.Book(file)
-	lastcol = countcol(2)
-	lastrow = countrow(2)
+	xw.Book(file)
+	lastcol = countcol(1)
+	lastrow = countrow(1)
+	print(lastcol)
+	print(lastrow)
+
 
 
 
@@ -40,6 +43,10 @@ def countrow(col_num):
         else:
             break
     return lastrow +1
+
+get_data("4felder.xlsm")
+
+
 
 
 ##################################################################################
